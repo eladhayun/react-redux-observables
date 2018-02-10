@@ -7,3 +7,7 @@ body {
 .app > .root-container {
   margin-top: 20px;
 }
+
+.version-container {
+  margin-top: 20px;
+}
