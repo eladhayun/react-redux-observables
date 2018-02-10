@@ -4,13 +4,13 @@ import AppBar from 'material-ui/AppBar';
 
 export default props => (
   <MuiThemeProvider>
-    <div className="App">
+    <div className="app">
       <AppBar
         title="React Redux Observables"
         className="app-bar"
         showMenuIconButton={false}
       />
-      {props.children}
+      <div className="root-container">{props.children}</div>
     </div>
   </MuiThemeProvider>
 );

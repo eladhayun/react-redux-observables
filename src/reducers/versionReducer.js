@@ -7,9 +7,10 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case VERSION_REQUESTED:
-      return { ...state };
+      return { ...state, version: '' };
     case VERSION_RECEIVED:
-      return { ...state };
+      const version = action.version.value;
+      return { ...state, version };
     default:
       return state;
   }

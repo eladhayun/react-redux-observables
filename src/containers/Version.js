@@ -1,11 +1,26 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 import { requestVersion } from '../actions';
 import { connect } from 'react-redux';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 const Version = props => (
-  <div>
-    <code>{props}</code>
-  </div>
+  <Grid fluid>
+    <Row center="xs">
+      <Col xs={6} md={3}>
+        <RaisedButton
+          label="Get Version"
+          primary={true}
+          onClick={props.requestVersion}
+        />
+      </Col>
+    </Row>
+    <Row center="xs">
+      <Col xs={6} md={3}>
+        {props.version}
+      </Col>
+    </Row>
+  </Grid>
 );
 
 const mapStateToProps = state => state.versionReducer;

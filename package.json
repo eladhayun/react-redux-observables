@@ -4,9 +4,13 @@
   "private": true,
   "dependencies": {
     "history": "^4.7.2",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
     "material-ui": "^0.20.0",
+    "prettier": "^1.10.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-flexbox-grid": "^2.0.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-redux": "^5.0.0-alpha.9",
@@ -15,9 +19,13 @@
     "redux-observable": "^0.17.0",
     "rxjs": "^5.5.6"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": ["prettier --single-quote --write", "git add"]
+  },
   "scripts": {
+    "lint": "prettier --single-quote --write \"src/**/*.{js,jsx,json,css}\"",
+    "precommit": "lint-staged",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   }
 }
