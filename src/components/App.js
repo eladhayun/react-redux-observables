@@ -1,6 +1,6 @@
-import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
+import React from 'react'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import AppBar from 'material-ui/AppBar'
 
 export default props => (
   <MuiThemeProvider>
@@ -13,4 +13,4 @@ export default props => (
       <div className="root-container">{props.children}</div>
     </div>
   </MuiThemeProvider>
-);
+)
