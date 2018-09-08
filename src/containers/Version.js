@@ -1,6 +1,6 @@
 import React from 'react'
-import RaisedButton from 'material-ui/RaisedButton'
-import CircularProgress from 'material-ui/CircularProgress'
+import Button from '@material-ui/core/Button'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import { requestVersion } from '../actions'
 import { connect } from 'react-redux'
 import { Grid, Row, Col } from 'react-flexbox-grid'
@@ -9,11 +9,7 @@ const Version = props => (
   <Grid fluid>
     <Row center="xs">
       <Col xs={6} md={3}>
-        <RaisedButton
-          label="Get Version"
-          primary={true}
-          onClick={props.requestVersion}
-        />
+        <Button onClick={props.requestVersion}>Get Version</Button>
       </Col>
     </Row>
     <Row center="xs" className="version-container">
@@ -30,4 +26,7 @@ const mapDispatchToProps = dispatch => ({
   requestVersion: () => dispatch(requestVersion())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Version)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Version)

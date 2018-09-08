@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
 import Version from './containers/Version'
-import reducer from './reducers'
-import epics from './epics'
+import rootReducer from './reducers'
+import rootEpic from './epics'
 import createHistory from 'history/createBrowserHistory'
 import registerServiceWorker from './utils/registerServiceWorker'
 import { createStore, applyMiddleware, compose } from 'redux'
@@ -20,11 +20,12 @@ import './index.css'
 const history = createHistory()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const routerMiddleware = createRouterMiddleware(history)
-const epicMiddleware = createEpicMiddleware(epics)
+const epicMiddleware = createEpicMiddleware()
 const store = createStore(
-  reducer,
+  rootReducer,
   composeEnhancers(applyMiddleware(epicMiddleware, routerMiddleware))
 )
+epicMiddleware.run(rootEpic)
 
 ReactDOM.render(
   <Provider store={store}>

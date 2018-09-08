@@ -10,7 +10,7 @@ export default (state = initialState, action) => {
     case VERSION_REQUESTED:
       return { ...state, version: '', isLoading: true }
     case VERSION_RECEIVED:
-      const version = action.version.value
+      const version = action.version
       return { ...state, version, isLoading: false }
     default:
       return state

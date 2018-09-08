@@ -7,7 +7,7 @@ export const requestVersion = () => ({
   type: VERSION_REQUESTED
 })
 
-export const versionReceived = version => ({
+export const versionReceived = ({ value: version }) => ({
   type: VERSION_RECEIVED,
   version
 })
