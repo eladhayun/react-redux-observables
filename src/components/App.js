@@ -7,7 +7,7 @@ const App = props => (
   <div className="app">
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="title" color="inherit">
+        <Typography variant="h6" color="inherit">
           React Redux Observables
         </Typography>
       </Toolbar>

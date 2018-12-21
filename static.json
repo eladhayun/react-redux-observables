@@ -1,0 +1,16 @@
+{
+  "root": "build/",
+  "https_only": true,
+  "clean_urls": true,
+  "routes": {
+    "/**": "index.html"
+  },
+  "proxies": {
+    "/api": {
+      "origin": "${API_SERVER}",
+      "pathRewrite": {
+        "^/api": "/"
+      }
+    }
+  }
+}

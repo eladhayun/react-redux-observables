@@ -1,11 +1,14 @@
+import 'babel-polyfill'
+import './styles/index.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import theme from './styles/theme'
 import App from './components/App'
 import Version from './containers/Version'
 import rootReducer from './reducers'
 import rootEpic from './epics'
-import createHistory from 'history/createBrowserHistory'
-import registerServiceWorker from './utils/registerServiceWorker'
+import { createBrowserHistory } from 'history'
+import { MuiThemeProvider } from '@material-ui/core/styles'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import { createEpicMiddleware } from 'redux-observable'
@@ -13,28 +16,27 @@ import { Route } from 'react-router'
 import {
   ConnectedRouter,
   routerMiddleware as createRouterMiddleware
-} from 'react-router-redux'
+} from 'connected-react-router'
 
-import './index.css'
-
-const history = createHistory()
+const history = createBrowserHistory()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const routerMiddleware = createRouterMiddleware(history)
 const epicMiddleware = createEpicMiddleware()
 const store = createStore(
-  rootReducer,
+  rootReducer(history),
   composeEnhancers(applyMiddleware(epicMiddleware, routerMiddleware))
 )
 epicMiddleware.run(rootEpic)
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App>
-        <Route exact path="/" component={Version} />
-      </App>
-    </ConnectedRouter>
+    <MuiThemeProvider theme={theme}>
+      <ConnectedRouter history={history}>
+        <App>
+          <Route exact path="/" component={Version} />
+        </App>
+      </ConnectedRouter>
+    </MuiThemeProvider>
   </Provider>,
   document.getElementById('root')
 )
-registerServiceWorker()

@@ -1,22 +1,25 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import { requestVersion } from '../actions'
 import { connect } from 'react-redux'
-import { Grid, Row, Col } from 'react-flexbox-grid'
 
 const Version = props => (
-  <Grid fluid>
-    <Row center="xs">
-      <Col xs={6} md={3}>
+  <Grid container direction="column" alignItems="center">
+    <Grid item xs={12}>
+      {!props.isLoading && (
         <Button onClick={props.requestVersion}>Get Version</Button>
-      </Col>
-    </Row>
-    <Row center="xs" className="version-container">
-      <Col xs={6} md={3}>
-        {props.isLoading ? <CircularProgress /> : props.version}
-      </Col>
-    </Row>
+      )}
+    </Grid>
+    <Grid item xs={12}>
+      {props.isLoading ? (
+        <CircularProgress />
+      ) : (
+        <Typography variant="subtitle2">{props.version}</Typography>
+      )}
+    </Grid>
   </Grid>
 )
 
