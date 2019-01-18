@@ -20,7 +20,8 @@
     "react-scripts": "2.1.2",
     "redux": "^4.0.1",
     "redux-observable": "^1.0.0",
-    "rxjs": "^6.3.3"
+    "rxjs": "^6.3.3",
+    "typeface-roboto": "0.0.54"
   },
   "devDependencies": {
     "http-proxy-middleware": "^0.19.1",
