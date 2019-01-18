@@ -1,7 +1,9 @@
 import 'babel-polyfill'
+import 'typeface-roboto'
 import './styles/index.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from './styles/theme'
 import App from './components/App'
 import Version from './containers/Version'
@@ -32,9 +34,12 @@ ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
       <ConnectedRouter history={history}>
-        <App>
-          <Route exact path="/" component={Version} />
-        </App>
+        <React.Fragment>
+          <CssBaseline />
+          <App>
+            <Route exact path="/" component={Version} />
+          </App>
+        </React.Fragment>
       </ConnectedRouter>
     </MuiThemeProvider>
   </Provider>,
