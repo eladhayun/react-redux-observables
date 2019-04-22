@@ -1,4 +1,4 @@
-import { VERSION_REQUESTED, VERSION_RECEIVED } from '../actions'
+import * as Actions from '../actions'
 
 const initialState = {
   version: '',
@@ -7,11 +7,10 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case VERSION_REQUESTED:
+    case Actions.VERSION_REQUESTED:
       return { ...state, version: '', isLoading: true }
-    case VERSION_RECEIVED:
-      const version = action.version
-      return { ...state, version, isLoading: false }
+    case Actions.VERSION_RECEIVED:
+      return { ...state, version: action.version, isLoading: false }
     default:
       return state
   }

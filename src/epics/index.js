@@ -1,4 +1,4 @@
 import { combineEpics } from 'redux-observable'
-import { requestVersionEpic } from './versionEpic'
+import homeEpic from './homeEpic'
 
-export default combineEpics(requestVersionEpic)
+export default combineEpics(homeEpic.requestVersionEpic)

@@ -1,9 +1,8 @@
-import versionReducer from './versionReducer'
 import { combineReducers } from 'redux'
 import { connectRouter } from 'connected-react-router'
+import homeReducer from './homeReducer'
 
-export default history =>
-  combineReducers({
-    router: connectRouter(history),
-    versionReducer
-  })
+export default history => combineReducers({
+  router: connectRouter(history),
+  homeReducer
+})
