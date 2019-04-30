@@ -6,8 +6,18 @@ export default createMuiTheme({
     useNextVariants: true
   },
   palette: {
-    primary: { main: '#2196f3' },
-    secondary: { main: '#f50057' }
+    primary: {
+      light: '#ed4b82',
+      main: '#e91e63',
+      dark: '#a31545',
+      contrastText: '#fff'
+    },
+    secondary: {
+      light: '#33bfff',
+      main: '#00b0ff',
+      dark: '#007bb2',
+      contrastText: '#fff'
+    }
   },
   overrides: {}
 })

@@ -1,0 +1,9 @@
+{
+  "data": {
+    "value": "It Worked!"
+  },
+  "version": {
+    "value": "1.2.3.4"
+  },
+  "authenticate": {}
+}

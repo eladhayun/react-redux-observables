@@ -1,20 +1,26 @@
 import { of } from 'rxjs'
-import { switchMap, mergeMap, delay } from 'rxjs/operators'
-import { ajax } from 'rxjs/ajax'
+import {
+  switchMap, mergeMap, delay, catchError
+} from 'rxjs/operators'
 import { ofType } from 'redux-observable'
-import * as Actions from '../actions'
+import { getJson } from '../utils/ajax'
+import Actions from '../actions/homeActions'
+import AppActions from '../actions/appActions'
 
 const URLS = {
-  VERSION: 'http://www.mocky.io/v2/5b4a46fd2f000077001e0e3a'
+  DATA: '/api/mock/data'
 }
 
-const requestVersionEpic = action$ => action$.pipe(
-  ofType(Actions.VERSION_REQUESTED),
+const requestDataEpic = action$ => action$.pipe(
+  ofType(Actions.DATA_REQUESTED),
   delay(2000),
-  switchMap(() => ajax(URLS.VERSION)
-    .pipe(mergeMap(({ response }) => of(Actions.versionReceived(response)))))
+  switchMap(() => getJson(URLS.DATA)
+    .pipe(
+      mergeMap(({ response }) => of(Actions.dataReceived(response))),
+      catchError(error => of(AppActions.fetchRejected(error)))
+    ))
 )
 
 export default {
-  requestVersionEpic
+  requestDataEpic
 }

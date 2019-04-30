@@ -1,16 +1,16 @@
-import * as Actions from '../actions'
+import Actions from '../actions/homeActions'
 
 const initialState = {
-  version: '',
+  data: '',
   isLoading: false
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case Actions.VERSION_REQUESTED:
+    case Actions.DATA_REQUESTED:
       return { ...state, version: '', isLoading: true }
-    case Actions.VERSION_RECEIVED:
-      return { ...state, version: action.version, isLoading: false }
+    case Actions.DATA_RECEIVED:
+      return { ...state, data: action.data, isLoading: false }
     default:
       return state
   }

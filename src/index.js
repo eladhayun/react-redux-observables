@@ -9,7 +9,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import { createEpicMiddleware } from 'redux-observable'
-import { Route, Redirect } from 'react-router'
+import { Route, Redirect, Switch } from 'react-router'
 import { ConnectedRouter, routerMiddleware as createRouterMiddleware } from 'connected-react-router'
 import ROUTES from './constants/routes'
 import rootEpic from './epics'
@@ -33,15 +33,38 @@ epicMiddleware.run(rootEpic)
 
 if (root !== null) {
   ReactDOM.render(
-    <Provider store={store}>
-      <MuiThemeProvider theme={theme}>
-        <ConnectedRouter history={history}>
+    <Provider
+      store={store}
+    >
+      <MuiThemeProvider
+        theme={theme}
+      >
+        <ConnectedRouter
+          history={history}
+        >
           <React.Fragment>
             <CssBaseline />
             <App>
-              <Route exact path={ROUTES.ROOT} render={() => <Redirect to={ROUTES.HOME} />} />
-              <Route exact path={ROUTES.LOGIN} component={Login} />
-              <Route path={ROUTES.HOME} component={Home} />
+              <Switch>
+                <Route
+                  exact
+                  path={ROUTES.ROOT}
+                  render={() => (
+                    <Redirect
+                      to={ROUTES.HOME}
+                    />
+                  )}
+                />
+                <Route
+                  exact
+                  path={ROUTES.LOGIN}
+                  component={Login}
+                />
+                <Route
+                  path={ROUTES.HOME}
+                  component={Home}
+                />
+              </Switch>
             </App>
           </React.Fragment>
         </ConnectedRouter>

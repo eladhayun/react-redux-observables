@@ -1,21 +1,55 @@
+// @flow
 import React from 'react'
-import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
 import { connect } from 'react-redux'
-import * as Actions from '../actions'
+import { withStyles } from '@material-ui/core/styles'
+import Actions from '../actions/homeActions'
+import Text from '../components/common/typography/Text'
+import PrimaryButton from '../components/common/buttons/PrimaryButton'
 
-const Home = ({ isLoading, requestVersion, version }) => (
-  <Grid container direction="column" alignItems="center">
-    <Grid item xs={12}>
-      {!isLoading && <Button onClick={requestVersion}>Get Version</Button>}
-    </Grid>
-    <Grid item xs={12}>
+const styles = () => ({
+  container: {
+    height: '100%',
+    background: 'var(--bg-color-1)'
+  },
+  item: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexBasis: 'initial'
+  }
+})
+
+const Home = ({
+  isLoading, requestData, data, classes
+}) => (
+  <Grid
+    container
+    direction="column"
+    justify="center"
+    alignItems="center"
+    className={classes.container}
+  >
+    <Grid
+      item
+      xs={12}
+      className={classes.item}
+    >
       {isLoading ? (
         <CircularProgress />
       ) : (
-        <Typography variant="subtitle2">{version}</Typography>
+        <Grid
+          container
+          direction="column"
+        >
+          <PrimaryButton
+            label="Get Data"
+            onClick={requestData}
+          />
+          <Text
+            label={data}
+          />
+        </Grid>
       )}
     </Grid>
   </Grid>
@@ -24,10 +58,10 @@ const Home = ({ isLoading, requestVersion, version }) => (
 const mapStateToProps = state => state.homeReducer
 
 const mapDispatchToProps = dispatch => ({
-  requestVersion: () => dispatch(Actions.requestVersion())
+  requestData: () => dispatch(Actions.requestData())
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home)
+)(withStyles(styles)(Home))
