@@ -1,0 +1,6 @@
+.git
+.dockerignore
+.eslintrc.json
+.flowconfig
+node_modules
+build
