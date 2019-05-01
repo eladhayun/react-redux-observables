@@ -1,3 +1,3 @@
 # react-redux-observables
-A starter project for react, redux and rxjs
-Deployable to Heroku, configured for https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack
+A starter project for React, Redux and RXJS (Redux-Observable)
+Deployable to Heroku, using this buildpack => https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack
