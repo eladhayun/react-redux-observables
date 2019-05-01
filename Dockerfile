@@ -2,7 +2,7 @@
 FROM node:10.15.3 as build-deps
 WORKDIR /usr/src/app
 COPY . ./
-RUN npm install --production
+RUN npm install --production --silent
 RUN npm run build
 
 # Stage 2 - the production environment
