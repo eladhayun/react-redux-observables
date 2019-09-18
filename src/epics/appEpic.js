@@ -17,7 +17,7 @@ const handleInitEpic = (action$, state$) => action$.pipe(
   ofType(Actions.LOCATION_CHANGED),
   withLatestFrom(state$),
   map(([, state]) => state),
-  filter(state => state.router.location.pathname !== ROUTES.LOGIN),
+  filter((state) => state.router.location.pathname !== ROUTES.LOGIN),
   filter(() => !localStorage.hasApiToken()),
   take(1),
   map(() => push(ROUTES.LOGIN))
@@ -32,7 +32,7 @@ const handleFetchRejectionEpic = (action$, state$) => action$.pipe(
   mapTo(Actions.logout())
 )
 
-const logoutEpic = action$ => action$.pipe(
+const logoutEpic = (action$) => action$.pipe(
   ofType(Actions.LOGOUT),
   tap(() => localStorage.removeApiToken()),
   map(() => push(ROUTES.LOGIN))

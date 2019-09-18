@@ -42,7 +42,7 @@ if (root !== null) {
         <ConnectedRouter
           history={history}
         >
-          <React.Fragment>
+          <>
             <CssBaseline />
             <App>
               <Switch>
@@ -66,7 +66,7 @@ if (root !== null) {
                 />
               </Switch>
             </App>
-          </React.Fragment>
+          </>
         </ConnectedRouter>
       </MuiThemeProvider>
     </Provider>,

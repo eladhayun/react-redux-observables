@@ -13,7 +13,7 @@ const defaultHeaders = {
 }
 
 function getApiToken() {
-  return from(new Promise(resolve => resolve(localStorage.getApiToken())))
+  return from(new Promise((resolve) => resolve(localStorage.getApiToken())))
     .pipe(take(1))
 }
 
@@ -27,7 +27,7 @@ function defaultAuthHeaders(apiToken) {
 }
 
 export const getJson = (url, headers = {}) => getApiToken().pipe(
-  mergeMap(apiToken => ajax.get(url, {
+  mergeMap((apiToken) => ajax.get(url, {
     ...defaultHeaders.contentType.applicationJson,
     ...defaultAuthHeaders(apiToken),
     ...headers
@@ -35,7 +35,7 @@ export const getJson = (url, headers = {}) => getApiToken().pipe(
 )
 
 export const postJson = (url, body, headers = {}) => getApiToken().pipe(
-  mergeMap(apiToken => ajax.post(url, JSON.stringify(body), {
+  mergeMap((apiToken) => ajax.post(url, JSON.stringify(body), {
     ...defaultHeaders.contentType.applicationJson,
     ...defaultAuthHeaders(apiToken),
     ...headers
@@ -43,7 +43,7 @@ export const postJson = (url, body, headers = {}) => getApiToken().pipe(
 )
 
 export const remove = (url, headers = {}) => getApiToken().pipe(
-  mergeMap(apiToken => ajax.delete(url, {
+  mergeMap((apiToken) => ajax.delete(url, {
     ...defaultAuthHeaders(apiToken),
     ...headers
   }))

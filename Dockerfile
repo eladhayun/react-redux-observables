@@ -1,5 +1,5 @@
 # Stage 1 - the build process
-FROM node:10.15.3 as build-deps
+FROM node:10.16.3 as build-deps
 WORKDIR /usr/src/app
 COPY . ./
 RUN npm install --production --silent

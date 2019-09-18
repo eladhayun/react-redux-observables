@@ -1,71 +1,72 @@
 {
-    "name": "react-redux-observable",
-    "version": "1.0.0",
-    "private": true,
-    "dependencies": {
-        "@material-ui/core": "^4.4.2",
-        "@material-ui/icons": "^4.4.1",
-        "classnames": "^2.2.6",
-        "connected-react-router": "^6.5.2",
-        "eslint-plugin-flowtype": "^4.3.0",
-        "eslint-plugin-import": "^2.18.2",
-        "history": "^4.10.1",
-        "keymirror": "^0.1.1",
-        "lodash": "^4.17.15",
-        "moment": "^2.24.0",
-        "react": "^16.9.0",
-        "react-dom": "^16.9.0",
-        "react-lodash": "^0.1.2",
-        "react-redux": "^7.1.1",
-        "react-router": "^5.0.1",
-        "react-router-dom": "^5.0.1",
-        "react-scripts": "3.1.1",
-        "redux": "^4.0.4",
-        "redux-observable": "^1.2.0",
-        "rxjs": "^6.5.3",
-        "typeface-roboto": "0.0.75"
-    },
-    "devDependencies": {
-        "eslint-config-airbnb": "^18.0.1",
-        "eslint-plugin-jsx-a11y": "^6.2.3",
-        "eslint-plugin-react": "^7.14.3",
-        "flow-bin": "^0.107.0",
-        "http-proxy-middleware": "^0.20.0",
-        "husky": "^3.0.5",
-        "json-server": "^0.15.1",
-        "lint-staged": "^9.2.5",
-        "source-map-explorer": "^2.0.1"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "flow": "flow",
-        "lint": "eslint src/**/*.js --fix",
-        "test": "react-scripts test",
-        "analyze": "source-map-explorer 'build/static/js/*.js'",
-        "jsonserver": "json-server --port 9000 --watch src/mocks/db.json"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "lint-staged": {
-        "*.js": [
-            "npm run lint --",
-            "git add"
-        ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
+  "name": "react-redux-observable",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.4.2",
+    "@material-ui/icons": "^4.4.1",
+    "classnames": "^2.2.6",
+    "connected-react-router": "^6.5.2",
+    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "history": "^4.10.1",
+    "keymirror": "^0.1.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-lodash": "^0.1.2",
+    "react-redux": "^7.1.1",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.1.1",
+    "redux": "^4.0.4",
+    "redux-observable": "^1.2.0",
+    "rxjs": "^6.5.3",
+    "typeface-roboto": "0.0.75"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "flow-bin": "^0.107.0",
+    "http-proxy-middleware": "^0.20.0",
+    "husky": "^3.0.5",
+    "json-server": "^0.15.1",
+    "lint-staged": "^9.2.5",
+    "source-map-explorer": "^2.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "flow": "flow",
+    "lint": "eslint src/**/*.js --fix",
+    "test": "react-scripts test",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "jsonserver": "json-server --port 9000 --watch src/mocks/db.json"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint --",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
+  }
 }

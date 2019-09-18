@@ -44,7 +44,7 @@ const Credentials = ({
   changePassword,
   requestLogin
 }) => (
-  <React.Fragment>
+  <>
     <TextField
       autoFocus
       className={classes.textField}
@@ -52,8 +52,8 @@ const Credentials = ({
       label="Name"
       value={username}
       margin="normal"
-      onChange={event => changeUsername(event.target.value)}
-      onKeyPress={event => event.key === 'Enter' && username && password && requestLogin(username, password)}
+      onChange={(event) => changeUsername(event.target.value)}
+      onKeyPress={(event) => event.key === 'Enter' && username && password && requestLogin(username, password)}
     />
     <TextField
       className={classes.textField}
@@ -62,8 +62,8 @@ const Credentials = ({
       label="Password"
       value={password}
       margin="normal"
-      onChange={event => changePassword(event.target.value)}
-      onKeyPress={event => event.key === 'Enter' && username && password && requestLogin(username, password)}
+      onChange={(event) => changePassword(event.target.value)}
+      onKeyPress={(event) => event.key === 'Enter' && username && password && requestLogin(username, password)}
     />
     <PrimaryButton
       label="Login"
@@ -71,7 +71,7 @@ const Credentials = ({
       disabled={!username || !password}
       onClick={() => requestLogin(username, password)}
     />
-  </React.Fragment>
+  </>
 )
 
 const Login = ({
@@ -126,12 +126,12 @@ const Login = ({
   </Grid>
 )
 
-const mapStateToProps = state => state.loginReducer
+const mapStateToProps = (state) => state.loginReducer
 
-const mapDispatchToProps = dispatch => ({
-  changeUsername: username => dispatch(Actions.changeUsername(username)),
-  changePassword: password => dispatch(Actions.changePassword(password)),
-  requestLogin: (username, password) => dispatch(Actions.requestLogin(username, password)),
+const mapDispatchToProps = (dispatch) => ({
+  changeUsername: (username) => dispatch(Actions.changeUsername(username)),
+  changePassword: (password) => dispatch(Actions.changePassword(password)),
+  requestLogin: (username, password) => dispatch(Actions.requestLogin(username, password))
 })
 
 export default connect(

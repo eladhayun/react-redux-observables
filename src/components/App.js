@@ -17,7 +17,7 @@ const styles = () => ({
 })
 
 const WithAppBar = (children, classes) => (
-  <React.Fragment>
+  <>
     <AppBar
       position="static"
     >
@@ -35,7 +35,7 @@ const WithAppBar = (children, classes) => (
     >
       {children}
     </div>
-  </React.Fragment>
+  </>
 )
 
 const WithoutAppBar = (children, classes) => (
