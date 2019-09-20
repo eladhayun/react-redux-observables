@@ -11,13 +11,13 @@ const URLS = {
   DATA: '/api/mock/data'
 }
 
-const requestDataEpic = (action$) => action$.pipe(
+const requestDataEpic = action$ => action$.pipe(
   ofType(Actions.DATA_REQUESTED),
   delay(2000),
   switchMap(() => getJson(URLS.DATA)
     .pipe(
       mergeMap(({ response }) => of(Actions.dataReceived(response))),
-      catchError((error) => of(AppActions.fetchRejected(error)))
+      catchError(error => of(AppActions.fetchRejected(error)))
     ))
 )
 

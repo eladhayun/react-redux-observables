@@ -22,6 +22,10 @@
       "error",
       "never"
     ],
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
     "react/jsx-indent": [
       1,
       2

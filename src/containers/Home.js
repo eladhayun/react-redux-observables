@@ -55,9 +55,9 @@ const Home = ({
   </Grid>
 )
 
-const mapStateToProps = (state) => state.homeReducer
+const mapStateToProps = state => state.homeReducer
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   requestData: () => dispatch(Actions.requestData())
 })
 
