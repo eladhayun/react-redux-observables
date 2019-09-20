@@ -8,8 +8,8 @@ const styles = theme => ({
     color: 'var(--text-color-1)'
   },
   margin: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1)
   },
   input: {
     color: 'var(--text-color-2)'
