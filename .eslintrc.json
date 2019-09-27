@@ -1,49 +1,15 @@
 {
   "env": {
-    "browser": true,
-    "node": true
+    "browser": true
   },
-  "globals": {
-    "document": false
-  },
-  "extends": [
-    "airbnb",
-    "plugin:flowtype/recommended"
-  ],
-  "plugins": [
-    "flowtype"
-  ],
+  "extends": ["airbnb", "prettier", "plugin:flowtype/recommended"],
+  "plugins": ["flowtype", "react-hooks", "prettier"],
   "rules": {
-    "semi": [
-      2,
-      "never"
-    ],
-    "comma-dangle": [
-      "error",
-      "never"
-    ],
-    "arrow-parens": [
-      "error",
-      "as-needed"
-    ],
-    "react/jsx-indent": [
-      1,
-      2
-    ],
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      }
-    ],
-    "react/jsx-props-no-spreading": [
-      0
-    ],
-    "react/prop-types": [
-      0
-    ]
+    "prettier/prettier": ["error"],
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-curly-newline": 0,
+    "react/state-in-constructor": 0
   }
 }

@@ -53,7 +53,9 @@ const Credentials = ({
       value={username}
       margin="normal"
       onChange={event => changeUsername(event.target.value)}
-      onKeyPress={event => event.key === 'Enter' && username && password && requestLogin(username, password)}
+      onKeyPress={event =>
+        event.key === 'Enter' && username && password && requestLogin(username, password)
+      }
     />
     <TextField
       className={classes.textField}
@@ -63,7 +65,9 @@ const Credentials = ({
       value={password}
       margin="normal"
       onChange={event => changePassword(event.target.value)}
-      onKeyPress={event => event.key === 'Enter' && username && password && requestLogin(username, password)}
+      onKeyPress={event =>
+        event.key === 'Enter' && username && password && requestLogin(username, password)
+      }
     />
     <PrimaryButton
       label="Login"
@@ -84,15 +88,8 @@ const Login = ({
   changePassword,
   requestLogin
 }) => (
-  <Grid
-    container
-    className={classes.container}
-  >
-    <Grid
-      item
-      xs={3}
-      className={classes.loginPane}
-    >
+  <Grid container className={classes.container}>
+    <Grid item xs={3} className={classes.loginPane}>
       <Grid
         container
         direction="column"
@@ -109,19 +106,11 @@ const Login = ({
           changePassword={changePassword}
           requestLogin={requestLogin}
         />
-        <Text
-          label={`Version: ${version}`}
-          className={classes.version}
-        />
+        <Text label={`Version: ${version}`} className={classes.version} />
       </Grid>
     </Grid>
-    <Grid
-      item
-      xs={9}
-    >
-      <div
-        className={classes.decorativePane}
-      />
+    <Grid item xs={9}>
+      <div className={classes.decorativePane} />
     </Grid>
   </Grid>
 )

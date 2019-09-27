@@ -27,49 +27,28 @@ const routerMiddleware = createRouterMiddleware(history)
 const epicMiddleware = createEpicMiddleware()
 const store = createStore(
   rootReducer(history),
-  composeEnhancers(applyMiddleware(epicMiddleware, routerMiddleware)),
+  composeEnhancers(applyMiddleware(epicMiddleware, routerMiddleware))
 )
 epicMiddleware.run(rootEpic)
 
 if (root !== null) {
   ReactDOM.render(
-    <Provider
-      store={store}
-    >
-      <MuiThemeProvider
-        theme={theme}
-      >
-        <ConnectedRouter
-          history={history}
-        >
+    <Provider store={store}>
+      <MuiThemeProvider theme={theme}>
+        <ConnectedRouter history={history}>
           <>
             <CssBaseline />
             <App>
               <Switch>
-                <Route
-                  exact
-                  path={ROUTES.ROOT}
-                  render={() => (
-                    <Redirect
-                      to={ROUTES.HOME}
-                    />
-                  )}
-                />
-                <Route
-                  exact
-                  path={ROUTES.LOGIN}
-                  component={Login}
-                />
-                <Route
-                  path={ROUTES.HOME}
-                  component={Home}
-                />
+                <Route exact path={ROUTES.ROOT} render={() => <Redirect to={ROUTES.HOME} />} />
+                <Route exact path={ROUTES.LOGIN} component={Login} />
+                <Route path={ROUTES.HOME} component={Home} />
               </Switch>
             </App>
           </>
         </ConnectedRouter>
       </MuiThemeProvider>
     </Provider>,
-    root,
+    root
   )
 }

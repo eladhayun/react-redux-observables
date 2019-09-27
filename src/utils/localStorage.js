@@ -19,5 +19,8 @@ function removeApiToken() {
 }
 
 export default {
-  getApiToken, setApiToken, hasApiToken, removeApiToken
+  getApiToken,
+  setApiToken,
+  hasApiToken,
+  removeApiToken
 }

@@ -20,9 +20,7 @@ const styles = () => ({
   }
 })
 
-const Home = ({
-  isLoading, requestData, data, classes
-}) => (
+const Home = ({ isLoading, requestData, data, classes }) => (
   <Grid
     container
     direction="column"
@@ -30,25 +28,13 @@ const Home = ({
     alignItems="center"
     className={classes.container}
   >
-    <Grid
-      item
-      xs={12}
-      className={classes.item}
-    >
+    <Grid item xs={12} className={classes.item}>
       {isLoading ? (
         <CircularProgress />
       ) : (
-        <Grid
-          container
-          direction="column"
-        >
-          <PrimaryButton
-            label="Get Data"
-            onClick={requestData}
-          />
-          <Text
-            label={data}
-          />
+        <Grid container direction="column">
+          <PrimaryButton label="Get Data" onClick={requestData} />
+          <Text label={data} />
         </Grid>
       )}
     </Grid>

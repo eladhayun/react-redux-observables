@@ -13,8 +13,7 @@ const defaultHeaders = {
 }
 
 function getApiToken() {
-  return from(new Promise(resolve => resolve(localStorage.getApiToken())))
-    .pipe(take(1))
+  return from(new Promise(resolve => resolve(localStorage.getApiToken()))).pipe(take(1))
 }
 
 function defaultAuthHeaders(apiToken) {
@@ -26,25 +25,34 @@ function defaultAuthHeaders(apiToken) {
   return {}
 }
 
-export const getJson = (url, headers = {}) => getApiToken().pipe(
-  mergeMap(apiToken => ajax.get(url, {
-    ...defaultHeaders.contentType.applicationJson,
-    ...defaultAuthHeaders(apiToken),
-    ...headers
-  }))
-)
+export const getJson = (url, headers = {}) =>
+  getApiToken().pipe(
+    mergeMap(apiToken =>
+      ajax.get(url, {
+        ...defaultHeaders.contentType.applicationJson,
+        ...defaultAuthHeaders(apiToken),
+        ...headers
+      })
+    )
+  )
 
-export const postJson = (url, body, headers = {}) => getApiToken().pipe(
-  mergeMap(apiToken => ajax.post(url, JSON.stringify(body), {
-    ...defaultHeaders.contentType.applicationJson,
-    ...defaultAuthHeaders(apiToken),
-    ...headers
-  }))
-)
+export const postJson = (url, body, headers = {}) =>
+  getApiToken().pipe(
+    mergeMap(apiToken =>
+      ajax.post(url, JSON.stringify(body), {
+        ...defaultHeaders.contentType.applicationJson,
+        ...defaultAuthHeaders(apiToken),
+        ...headers
+      })
+    )
+  )
 
-export const remove = (url, headers = {}) => getApiToken().pipe(
-  mergeMap(apiToken => ajax.delete(url, {
-    ...defaultAuthHeaders(apiToken),
-    ...headers
-  }))
-)
+export const remove = (url, headers = {}) =>
+  getApiToken().pipe(
+    mergeMap(apiToken =>
+      ajax.delete(url, {
+        ...defaultAuthHeaders(apiToken),
+        ...headers
+      })
+    )
+  )

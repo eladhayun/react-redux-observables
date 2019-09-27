@@ -28,7 +28,7 @@ const requestVersion = () => ({
   type: VERSION_REQUESTED
 })
 
-const versionReceived = (version: {value: string}) => ({
+const versionReceived = (version: { value: string }) => ({
   type: VERSION_RECEIVED,
   version: version.value
 })

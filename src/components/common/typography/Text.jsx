@@ -9,10 +9,7 @@ const styles = () => ({
 })
 
 const Text = ({ label, classes, className }) => (
-  <Typography
-    className={className}
-    classes={{ body2: classes.body2 }}
-  >
+  <Typography className={className} classes={{ body2: classes.body2 }}>
     {label}
   </Typography>
 )

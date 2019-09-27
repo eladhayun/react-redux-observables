@@ -4,9 +4,7 @@ import { withStyles } from '@material-ui/core/styles'
 
 const styles = () => ({})
 
-const PrimaryButton = ({
-  label, className, classes, ...props
-}) => (
+const PrimaryButton = ({ label, className, classes, ...props }) => (
   <Button
     variant="contained"
     color="primary"

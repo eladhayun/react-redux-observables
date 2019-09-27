@@ -18,38 +18,21 @@ const styles = () => ({
 
 const WithAppBar = (children, classes) => (
   <>
-    <AppBar
-      position="static"
-    >
+    <AppBar position="static">
       <Toolbar>
-        <Typography
-          variant="h6"
-          color="inherit"
-        >
+        <Typography variant="h6" color="inherit">
           React Redux Observable
         </Typography>
       </Toolbar>
     </AppBar>
-    <div
-      className={classes.withAppBar}
-    >
-      {children}
-    </div>
+    <div className={classes.withAppBar}>{children}</div>
   </>
 )
 
-const WithoutAppBar = (children, classes) => (
-  <div
-    className={classes.withoutAppBar}
-  >
-    {children}
-  </div>
-)
+const WithoutAppBar = (children, classes) => <div className={classes.withoutAppBar}>{children}</div>
 
 const App = ({ children, location, classes }) => (
-  <div
-    className="app"
-  >
+  <div className="app">
     <IsEqual
       value={location.pathname}
       other={ROUTES.LOGIN}
