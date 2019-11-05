@@ -1,45 +1,27 @@
+// @flow
+
 import React from 'react'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import { withRouter } from 'react-router'
-import { IsEqual } from 'react-lodash'
-import { withStyles } from '@material-ui/core/styles'
-import ROUTES from '../constants/routes'
+import logo from '../resources/logo.svg'
 
-const styles = () => ({
-  withAppBar: {
-    height: 'calc(100% - 64px)'
-  },
-  withoutAppBar: {
-    height: '100%'
-  }
-})
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  )
+}
 
-const WithAppBar = (children, classes) => (
-  <>
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" color="inherit">
-          React Redux Observable
-        </Typography>
-      </Toolbar>
-    </AppBar>
-    <div className={classes.withAppBar}>{children}</div>
-  </>
-)
-
-const WithoutAppBar = (children, classes) => <div className={classes.withoutAppBar}>{children}</div>
-
-const App = ({ children, location, classes }) => (
-  <div className="app">
-    <IsEqual
-      value={location.pathname}
-      other={ROUTES.LOGIN}
-      yes={() => WithoutAppBar(children, classes)}
-      no={() => WithAppBar(children, classes)}
-    />
-  </div>
-)
-
-export default withRouter(withStyles(styles)(App))
+export default App

@@ -1,8 +1,17 @@
 {
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#ac333b",
-        "statusBarItem.hoverBackground": "#c94951",
-        "statusBar.foreground": "#e7e7e7"
-    },
-    "peacock.color": "#ac333b"
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#8a1972",
+    "statusBarItem.hoverBackground": "#b52196",
+    "statusBar.foreground": "#e7e7e7"
+  },
+  "peacock.color": "#8a1972",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    { "language": "typescript", "autoFix": true },
+    { "language": "typescriptreact", "autoFix": true }
+  ],
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "javascript.validate.enable": false
 }

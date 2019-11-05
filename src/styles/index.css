@@ -1,27 +1,29 @@
 :root {
   /* Background Colors */
-  --bg-color-1: #0E1627;
+  --bg-color-1: #0e1627;
   /* Text Colors */
-  --text-color-1: #FFFFFF;
-  --text-color-2: #A7ADBB;
+  --text-color-1: #ffffff;
 }
 
-.max-height {
-  height: 100%;
+.App {
+  text-align: center;
 }
 
-.max-width {
-  width: 100%;
+.App-logo {
+  height: 40vmin;
 }
 
-html,
-body,
-#root,
-.app {
-  height: 100%;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+.App-link {
+  color: #09d3ac;
 }
