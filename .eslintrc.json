@@ -2,7 +2,7 @@
   "env": {
     "browser": true
   },
-  "extends": ["airbnb", "prettier", "plugin:flowtype/recommended"],
+  "extends": ["react-app", "prettier", "plugin:flowtype/recommended"],
   "plugins": ["flowtype", "react-hooks", "prettier"],
   "rules": {
     "prettier/prettier": ["error"],
