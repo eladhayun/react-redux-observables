@@ -13,5 +13,14 @@
   ],
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "javascript.validate.enable": false
+  "javascript.validate.enable": false,
+  "editor.parameterHints.enabled": false,
+
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "prettier.disableLanguages": ["js"],
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "files.autoSave": "onFocusChange"
 }
