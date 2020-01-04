@@ -22,5 +22,8 @@
   "prettier.disableLanguages": ["js"],
   "eslint.autoFixOnSave": true,
   "eslint.alwaysShowStatus": true,
-  "files.autoSave": "onFocusChange"
+  "files.autoSave": "onFocusChange",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

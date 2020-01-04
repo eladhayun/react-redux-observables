@@ -1,9 +1,15 @@
-// @flow
-
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo from '../resources/logo.svg'
+import { connect } from 'react-redux'
+import Actions from '../actions'
+import Either from '../components/common/Either'
+import { CircularProgress, Box } from '@material-ui/core'
 
-function App() {
+const App = ({ isLoading, version, requestVersion }) => {
+  useEffect(() => {
+    requestVersion()
+  }, [requestVersion])
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,9 +25,22 @@ function App() {
         >
           Learn React
         </a>
+        <Box m={2}>
+          <Either
+            condition={isLoading}
+            ifTrue={<CircularProgress />}
+            ifFalse={version}
+          />
+        </Box>
       </header>
     </div>
   )
 }
 
-export default App
+const mapStateToProps = state => state.appReducer
+
+const mapDispatchToProps = dispatch => ({
+  requestVersion: () => dispatch(Actions.requestVersion())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

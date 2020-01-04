@@ -1,5 +1,3 @@
-// @flow
-
 const ROOT = '/'
 const LOGIN = '/login'
 

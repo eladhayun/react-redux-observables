@@ -35,14 +35,14 @@ epicMiddleware.run(rootEpic)
 if (root !== null) {
   ReactDOM.render(
     <Provider store={store}>
-      <MuiThemeProvider theme={theme}>
-        <ConnectedRouter history={history}>
+      <ConnectedRouter history={history}>
+        <MuiThemeProvider theme={theme}>
           <CssBaseline />
           <Switch>
             <Route path={ROUTES.ROOT} component={App} />
           </Switch>
-        </ConnectedRouter>
-      </MuiThemeProvider>
+        </MuiThemeProvider>
+      </ConnectedRouter>
     </Provider>,
     root
   )

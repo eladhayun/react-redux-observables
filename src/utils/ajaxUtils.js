@@ -1,7 +1,7 @@
 import { from } from 'rxjs'
 import { ajax } from 'rxjs/ajax'
 import { mergeMap, take } from 'rxjs/operators'
-import localStorage from './localStorage'
+import storageUtils from './storageUtils'
 
 const defaultHeaders = {
   contentType: {
@@ -13,7 +13,7 @@ const defaultHeaders = {
 }
 
 function getApiToken() {
-  return from(new Promise(resolve => resolve(localStorage.getApiToken()))).pipe(
+  return from(new Promise(resolve => resolve(storageUtils.getApiToken()))).pipe(
     take(1)
   )
 }
