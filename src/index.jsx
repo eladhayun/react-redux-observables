@@ -8,6 +8,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { createBrowserHistory } from 'history'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import { createStore, applyMiddleware, compose } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import { Provider } from 'react-redux'
 import { createEpicMiddleware } from 'redux-observable'
 import { Route, Switch } from 'react-router'
@@ -23,7 +24,7 @@ import theme from './styles/theme'
 
 const root = document.getElementById('root')
 const history = createBrowserHistory()
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = composeWithDevTools({})
 const routerMiddleware = createRouterMiddleware(history)
 const epicMiddleware = createEpicMiddleware()
 const store = createStore(
