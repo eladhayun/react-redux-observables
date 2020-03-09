@@ -1,8 +1,4 @@
 import { combineEpics } from 'redux-observable'
-import appEpic from './appEpic'
+import tabOneEpic from './tabOneEpic'
 
-export default combineEpics(
-  appEpic.appInitEpic,
-  appEpic.requestVersionEpic,
-  appEpic.fetchRejectionEpic
-)
+export default combineEpics(tabOneEpic.requestTabOneDataEpic)

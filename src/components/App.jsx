@@ -1,46 +1,41 @@
-import React, { useEffect } from 'react'
-import logo from '../resources/logo.svg'
-import { connect } from 'react-redux'
-import Actions from '../actions'
-import Either from '../components/common/Either'
-import { CircularProgress, Box } from '@material-ui/core'
+import React from 'react'
+import AppBar from './AppBar'
+import ROUTES from '../consts/routesConsts'
+import TabOne from './tabOne'
+import TabTwo from './tabTwo'
+import { Switch, Route, Redirect } from 'react-router'
+import { makeStyles } from '@material-ui/core'
 
-const App = ({ isLoading, version, requestVersion }) => {
-  useEffect(() => {
-    requestVersion()
-  }, [requestVersion])
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex'
+  },
+  content: {
+    flexGrow: 1
+  },
+  toolbar: theme.mixins.toolbar
+}))
+
+const App = () => {
+  const classes = useStyles()
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Box m={2}>
-          <Either
-            condition={isLoading}
-            ifTrue={<CircularProgress />}
-            ifFalse={version}
+    <div className={classes.root}>
+      <AppBar />
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <Switch>
+          <Route
+            exact
+            path={ROUTES.ROOT}
+            render={() => <Redirect to={ROUTES.TAB_ONE} />}
           />
-        </Box>
-      </header>
+          <Route path={ROUTES.TAB_ONE} component={TabOne} />
+          <Route path={ROUTES.TAB_TWO} component={TabTwo} />
+        </Switch>
+      </main>
     </div>
   )
 }
 
-const mapStateToProps = state => state.appReducer
-
-const mapDispatchToProps = dispatch => ({
-  requestVersion: () => dispatch(Actions.requestVersion())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App

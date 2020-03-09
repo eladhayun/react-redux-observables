@@ -1,7 +1,9 @@
 const ROOT = '/'
-const LOGIN = '/login'
+const TAB_ONE = '/tab-one'
+const TAB_TWO = '/tab-two'
 
 export default {
   ROOT,
-  LOGIN
+  TAB_ONE,
+  TAB_TWO
 }

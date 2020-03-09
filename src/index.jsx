@@ -1,13 +1,10 @@
-// @flow
-
 import 'typeface-roboto'
-import './styles/index.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { createBrowserHistory } from 'history'
 import { MuiThemeProvider } from '@material-ui/core/styles'
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import { Provider } from 'react-redux'
 import { createEpicMiddleware } from 'redux-observable'
@@ -31,6 +28,7 @@ const store = createStore(
   rootReducer(history),
   composeEnhancers(applyMiddleware(epicMiddleware, routerMiddleware))
 )
+
 epicMiddleware.run(rootEpic)
 
 if (root !== null) {
