@@ -1,5 +1,6 @@
 import { ajax } from 'rxjs/ajax'
 import { getApiToken } from './authUtils'
+import { pickBy, identity, memoize } from 'lodash'
 
 const defaultHeaders = {
   contentType: {
@@ -10,15 +11,14 @@ const defaultHeaders = {
   }
 }
 
-function defaultAuthHeaders() {
-  const apiToken = getApiToken()
-  if (apiToken) {
-    return {
+const defaultAuthHeaders = memoize(() => {
+  return pickBy(
+    {
       Authorization: getApiToken()
-    }
-  }
-  return {}
-}
+    },
+    identity
+  )
+})
 
 export const getJSON = (url, headers = {}) => {
   return ajax.getJSON(url, {

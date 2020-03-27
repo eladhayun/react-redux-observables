@@ -25,15 +25,15 @@
     "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "http-proxy-middleware": "^1.0.3",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.9",
     "prettier": "^2.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env react-scripts start",
     "build": "react-scripts build"
   },
   "eslintConfig": {
