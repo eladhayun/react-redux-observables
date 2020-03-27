@@ -1,11 +1,9 @@
-import {
-  switchMap,
-  mergeMap,
-  take,
-  takeUntil
-} from 'rxjs/operators'
+import { switchMap, mergeMap, take, takeUntil, map } from 'rxjs/operators'
 import { of, interval } from 'rxjs'
 import { ofType } from 'redux-observable'
+import { push } from 'react-router'
+import { ROUTES } from '../consts'
+import Actions from '../actions'
 
 /**
  * @param ACTION_IN (Action In)
@@ -22,7 +20,7 @@ const appPostInitEpic = action$ =>
       )
     )
   )
-  
+
 /**
  * @param X_REQUESTED (Action In)
  * @param LOCATION_CHANGE (Action Out)
@@ -34,7 +32,7 @@ const appLogoutOnIntervalEpic = action$ =>
       action$.pipe(
         switchMap(() =>
           interval(seconds * 1000).pipe(
-            takeUntil(action$.pipe(ofType(...getRequestedActions))),
+            takeUntil(action$.pipe(ofType(...[]))),
             take(1),
             map(() => push(ROUTES.LOGOUT))
           )
@@ -42,3 +40,8 @@ const appLogoutOnIntervalEpic = action$ =>
       )
     )
   )
+
+export default {
+  appPostInitEpic,
+  appLogoutOnIntervalEpic
+}
