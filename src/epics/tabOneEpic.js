@@ -8,7 +8,7 @@ const URLS = {
   DATA: '/api/mock/data'
 }
 
-const requestTabOneDataEpic = action$ =>
+export const requestTabOneDataEpic = action$ =>
   action$.pipe(
     ofType(Actions.TAB_ONE_DATA_REQUESTED),
     switchMap(() =>
@@ -18,7 +18,3 @@ const requestTabOneDataEpic = action$ =>
       )
     )
   )
-
-export default {
-  requestTabOneDataEpic
-}
