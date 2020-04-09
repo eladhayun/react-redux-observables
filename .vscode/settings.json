@@ -2,7 +2,8 @@
   "workbench.colorCustomizations": {
     "statusBar.background": "#8a1972",
     "statusBarItem.hoverBackground": "#b52196",
-    "statusBar.foreground": "#e7e7e7"
+    "statusBar.foreground": "#e7e7e7",
+    "statusBar.border": "#8a1972"
   },
   "peacock.color": "#8a1972",
   "eslint.validate": [

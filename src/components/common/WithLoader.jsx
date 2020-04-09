@@ -1,17 +1,19 @@
 import React from 'react'
 import { Grid, CircularProgress } from '@material-ui/core'
 import Either from './Either'
+import { useSelector } from 'react-redux'
 
-const WithLoader = ({ isLoading = false, children }) => {
+const WithLoader = ({ action, children }) => {
+  const withLoader = useSelector(state => state.loadingReducer.withLoader)
   return (
     <Either
-      condition={isLoading}
-      thisOne={
+      condition={withLoader === action}
+      ifTrue={
         <Grid container justify="center">
-          <CircularProgress color="secondary" />
+          <CircularProgress color="primary" />
         </Grid>
       }
-      orThatOne={children}
+      ifFalse={children}
     />
   )
 }
